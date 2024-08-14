@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(10,10,10);
+    align-items: center;
+}
+.navbar{
+    background-color: #000000; 
+    position: fixed; 
+    width: 90%;
+    border-radius: 30px;
+    margin: 1% 5%;
+}
+.first-view{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+#loginLogo
+{
+    display: block;
+}
+#logOutbtn
+{
+    display: none;
+}
+#introVideo{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 100%;
+    opacity: 0.2;
+}
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    height: 70vh;
+    color: white;
+    flex:0.5;
+    margin: 10px;
+    position: relative;
+    transition: all 0.7s ease-in; 
+    padding: 20px;
+}
+.panel h2{
+    font-size: 30px;
+    margin: 0;
+    opacity: 0;
+}
+.panel a{
+    opacity: 0;
+}
+.panel p{
+    font-size: 20px;
+    opacity: 0;
+}
+.panel.active{
+    display: flex;
+    flex: 5;
+    flex-direction: column-reverse;
+}
+
+.panel.active h2{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+.panel.active p{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+.panel.active a{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+.panel.active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+@media (max-width : 800px)
+{
+    .container-fluid
+    {
+        width: 100vw;
+        transition: opacity 0.3s ease-in 0.4s;
+    }
+    #introVideo
+    {
+        width: 100%;
+    }
+    .panel{
+        display: flex;
+    }
+}
+@media (max-width :300px)
+{
+    .panel.active {
+        width: 100%;
+    }
+    .container-fluid
+    {
+        transition: opacity 0.3s ease-in 0.4s;
+    }
+    .panel{
+        display: flex;
+    }
+    .panel:nth-of-type(4)
+    {
+        display: flex;
+    }
+}
+.partners
+{
+    background-color: rgb(10,10,10);
+    height: auto;
+}
+.partners-content
+{
+    width: 90%;
+}
+.inNumbers{
+    width: 100%;
+    background-image: url("../images/istockphoto-1407983911-2048x2048.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: auto;
+}
+.inNumbers-content
+{
+    width: 90%;
+    padding: 50px;
+}
+.inNumber-item
+{
+    font-size: 96px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.inNumbersIcon
+{
+    color: #00cfcf;
+    text-shadow: 2px 2px 2px white, -2px -2px 2px gray;
+}

@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(10, 10, 10);
+}
+.carousel-item{
+    height: 100vh;
+    width: 100%;
+    opacity: 0.5;
+}
+@media only screen and (max-width: 1200px) {
+    .carousel-item{
+        height: auto;
+    }
+}
+#whoWeAre, #showRoomLunch
+{
+    padding: 35px;
+    width: 100%;
+}
+#whoWeAreTXT, #showRoomLunchTXT, #visionToRealityTXT
+{
+    padding-left: 40px ;
+}
+#visionToReality
+{
+    padding: 35px;
+    width: 90%;
+}
+.content img{
+    max-width: 100%;
+}
+.content img:hover{
+    transform: scale(1.03);
+    transition-duration: 1.5s;
+    box-shadow: 1px 1px 5px rgb(110, 110, 110);
+}

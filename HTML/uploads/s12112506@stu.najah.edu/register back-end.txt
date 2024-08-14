@@ -1,0 +1,63 @@
+<?php
+$FirstName = 0;
+$LastName = 0;
+$E_mail = 0;
+$Phone = 0;
+$Username = 0;
+$Password = 0;
+$confPass = 0;
+$userLevel = 0;
+$db = 0;
+$added = 0;
+if(isset($_POST["password"]) and isset($_POST["confPassword"]))
+{
+    if($_POST["password"] == $_POST["confPassword"])
+    {
+        $FirstName = $_POST["firstName"];
+        $LastName = $_POST["lastName"];
+        $E_mail = $_POST["email"];
+        $Phone = $_POST["telephone"];
+        $Username = $_POST["username"];
+        $Password = $_POST["password"];
+        $ID = $_POST["id"];
+
+        if(str_contains($_POST['username'],'@admin'))
+            $userLevel = 1;
+        elseif(str_contains($_POST['username'],'@emp'))
+            $userLevel = 2;
+        else
+            $userLevel = 3;
+        try
+        {
+            $db = new mysqli('localhost','root','','carera');
+            if ($db->connect_errno)
+                echo $db->connect_error;
+            $qry1 = "select * from members where ID = $ID";
+            $result1 = $db->query($qry1);
+
+            if($result1->num_rows > 0)
+                echo 'unacceptable ID, try another one!';
+            $qry2 = "INSERT INTO `members` (`ID`, `firstName`, `lastName`, `Email`, `Password`, `tel`, `memberLevel`, `userName`) VALUES ('".$ID."', '".$FirstName."', '".$LastName."','".$E_mail."', SHA1('".$Password."'), '".$Phone."',".$userLevel.",'".$Username."');";
+            if ($db->query($qry2) === TRUE) {
+                header("location:LoginPage.php");
+            } else {
+                echo "Error: " . $qry2 . "<br>" . $db->error;
+            }
+            $db->commit();
+            $added = 1;
+            echo 'added succefully!';
+
+            $db->close();
+        }//end of try
+        catch(Exception $e)
+        {
+            echo '<script>alert("hi")</script>;';
+        }
+        }//end of password == confirm password
+        else
+        {
+
+        }//if password not equal confirm password
+}
+
+?>

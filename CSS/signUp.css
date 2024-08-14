@@ -1,0 +1,16 @@
+body
+{
+    background-color: black;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"]
+{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+form{
+    padding: 50px;
+}
+fieldset
+{
+    border-radius: 25px;
+}

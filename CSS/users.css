@@ -1,0 +1,55 @@
+body {
+   background-color: #101010;
+}
+#userDiv
+    {
+        background-color: rgb(50,50,50);
+        width: 275px;
+        border-radius: 25px;
+        margin: 15px;
+        padding: 10px;
+        z-index: 0;
+    }
+    #usersContainer
+    {
+        width: 100%;
+        padding-left: 5%;
+    }
+    #heading
+    {
+        margin-left: 5%;
+        padding-top: 100px;
+    }
+
+    #updateEmpForm
+    {
+        padding: 15px;
+        margin: 0;
+    }
+    #userDiv:hover
+    {
+        box-shadow: 1px 1px 5px white, -1px -1px 5px white;
+        transform: scale(1.05,1.05);
+        transition-duration: 1s;
+    }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input[type=submit]
+{
+    width: 45%;
+    margin: 2%;
+}
+input[type=text], input[type=number]
+{
+    background-color: rgb(50,50,50);
+    color: white;
+    border:none;
+    margin: 5px;
+    width: 100%;
+}

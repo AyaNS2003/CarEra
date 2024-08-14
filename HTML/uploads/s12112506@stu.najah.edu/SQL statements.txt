@@ -1,0 +1,43 @@
+1. creating tables
+	a. CREATE TABLE `webproj`.`members` (`ID` INT NOT NULL AUTO_INCREMENT , `firstName` VARCHAR(20) NOT NULL , `LastName` VARCHAR(20) NOT NULL , `Email` VARCHAR(50) NOT NULL , `Password` VARCHAR(50) NOT NULL , `telephone` VARCHAR NOT NULL , `memberLevel` INT NOT NULL , `userName` VARCHAR(20) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+	b. CREATE TABLE `webproj`.`car` (`cylinders` INT NOT NULL , `doors` INT NOT NULL DEFAULT '4' , `fuel type` VARCHAR(25) NOT NULL , `gears` INT NOT NULL , `max power` INT NOT NULL , `Model` VARCHAR(50) NOT NULL , `price` FLOAT NOT NULL , `Qty` INT NOT NULL , `seats` INT NOT NULL DEFAULT '4' , `transmission` INT NOT NULL , PRIMARY KEY (`Model`)) 
+
+	c. CREATE TABLE `webproj`.`maintenance` (`ID` INT NOT NULL AUTO_INCREMENT , `CustomerID` INT NOT NULL , `OurCar` VARCHAR(5) NOT NULL , `Model` VARCHAR(50) NOT NULL , `Branch` VARCHAR(30) NOT NULL , `Date` VARCHAR(50) NOT NULL , `Message` VARCHAR(255) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+ 
+	d. CREATE TABLE `webproj`.`testdrivebooks` (`CustomerID` INT NOT NULL , `ID` INT NOT NULL AUTO_INCREMENT , `Name` VARCHAR(100) NOT NULL , `Email` VARCHAR(100) NOT NULL , `Phone Number` VARCHAR(50) NOT NULL , `Car Model` VARCHAR(50) NOT NULL , `Branch` VARCHAR(30) NOT NULL , `Date and Time` VARCHAR(200) NOT NULL , `Message` VARCHAR(1000) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+
+	e. CREATE TABLE `webproj`.`deals` (`ID` INT NOT NULL AUTO_INCREMENT , `FinancingMethod` VARCHAR(50) NOT NULL , `DownPayment` INT NOT NULL , `Duration` SMALLINT NOT NULL , `CustomerID` INT NOT NULL , `Branch` VARCHAR(30) NOT NULL , `jopType` VARCHAR(50) NOT NULL , `MonthlyIncome` INT NOT NULL , `OtherLoans` VARCHAR(5) NOT NULL , `Identity` VARCHAR(255) NOT NULL , `LatestSalarySlip` VARCHAR(255) NOT NULL , `SalaryTransferLetter` VARCHAR(255) NOT NULL , `WorkPermit` VARCHAR(50) NOT NULL , `TIME` VARCHAR(100) NOT NULL , `Message` TEXT NOT NULL , `Model` VARCHAR(50) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+
+2. foreign keys
+	a. ALTER TABLE `members` ADD CONSTRAINT `memLevel_members_fk` 
+	   FOREIGN KEY (`memberLevel`) REFERENCES `memberlevel`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+	b. ALTER TABLE `car` ADD CONSTRAINT `carType_car_fk` FOREIGN KEY 
+	   (`car_type`) REFERENCES `car_type`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+	c. ALTER TABLE `testdrivebooks` ADD CONSTRAINT `test_member_fk` FOREIGN KEY (`CustomerID`) REFERENCES `members`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+	d. ALTER TABLE `testdrivebooks` ADD CONSTRAINT `test_car_fk` FOREIGN KEY (`Car Model`) REFERENCES `car`(`Model`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+	e. ALTER TABLE `maintenance` ADD CONSTRAINT `main_member_fk` FOREIGN KEY (`CustomerID`) REFERENCES `members`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+	f. ALTER TABLE `deals` ADD CONSTRAINT `deals_member_fk` FOREIGN KEY (`CustomerID`) REFERENCES `members`(`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+	g. ALTER TABLE `deals` ADD CONSTRAINT `deals_cars_fk` FOREIGN KEY (`Model`) REFERENCES `car`(`Model`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+
+
+3. inserts
+	a. INSERT INTO `members` (`ID`, `firstName`, `lastName`, `Email`, `Password`, `tel`, `memberLevel`) VALUES ('1', 'Aya', 'Sawalha', 		   'aya.sawalha.2003@gmail.com', SHA1('1234'), '+972598434383', '1');
+	b. INSERT INTO `car` (`cylinders`, `doors`, `fuel type`, `gears`, `max power`, `Model`, `price`, `Qty`, `seats`, `transmission`) VALUES ('8', '4', 'Gasoline Direct Injection', '9', '587', 'Mercedes G-class 2022', '175000', '5', '4', 'Autmatic');
